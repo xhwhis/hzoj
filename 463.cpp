@@ -1,15 +1,13 @@
-#include <stdio.h>
-
-int is_val(int n) {
-	return ((n % 4 == 0 && n % 100) || n % 400 == 0);
-}
+#include <iostream>
+using namespace std;
 
 int main() {
-	int x, y, cnt = 0;
-	scanf ("%d%d", &x, &y);
-	for (int i = x; i <= y; i++) {
-		if (is_val(i)) cnt++;
+	int left1, right1, up1, down1, left2, right2, up2, down2;
+	cin >> left1 >> right1 >> up1 >> down1 >> left2 >> right2 >> up2 >> down2;
+	if ((min(right1, right2) >= max(left1, left2)) && min(down1, down2) >= max(up1, up2)) {
+		cout << (min(right1, right2) - max(left1, left2)) * (min(down1, down2)- max(up1, up2));
+	} else {
+		cout << 0;
 	}
-	printf ("%d", cnt);
 	return 0;
 }
